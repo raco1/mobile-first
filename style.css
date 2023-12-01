@@ -1,0 +1,236 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    font-size: 62.5%;
+    --fs-body: 1.6rem;
+    --fs-span:2rem;
+
+    --ff-header:'Staatliches', sans-serif;
+    --ff-main:'Palanquin', sans-serif;
+
+    --bg-body: hsla(233, 100%, 97%, 1);
+    --bg-span:hsla(312, 91%, 96%, 1);
+    --bg-h1:hsla(275, 18%, 79%, 1);
+    --bg-header:hsla(218, 17%, 62%, 1);
+
+    --ct-span:hsla(232, 17%, 35%, 1);
+
+    --mw-header:clamp(32rem,)
+}
+body{
+    background: var(--bg-body);
+    font-size: var(--fs-body);
+    max-height: 72rem;
+    /* max-width: 38.4rem; */
+}
+.page{
+    max-width: 100vw;
+    height: 100vh;
+}
+header{
+    background: var(--bg-header);
+    max-width: 100%;
+    display: grid;
+    align-content: space-evenly;
+    justify-items: center;
+}
+header img{
+    width: 13.7rem;
+    height: 13.7rem;
+    margin-top: 3.2rem;
+}
+header h1{
+    color: #fff;
+    background:var(--bg-h1);
+    width: 100%;
+    height: 4.9rem;
+    font-family: var(--ff-header);
+    font-size: 4rem;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-align: center;
+    text-shadow: rgba(0, 0, 0, 0.25) 2px 0 2px;
+    margin: 3.2rem auto;
+}
+header p{
+    display: none;
+}
+main{
+    padding: 1.4rem 3.2rem 6rem;
+    display: grid;
+    gap: 3.6rem;
+}
+main p{
+    font-family: var(--ff-main);
+    font-size: 1.6rem;
+    line-height: 1.5rem;
+    text-align: Center;
+    margin-bottom: 3rem;
+    font-weight: 400;
+}
+main div:nth-child(6){
+    display: none;
+}
+main div:nth-child(7){
+    display: none;
+}
+img{
+    width: 100%;
+    border-radius: 2rem;
+}
+.card-A, .card-B{
+    position: relative;
+    display: grid;
+}
+.card-A img{
+    max-width: 100%;
+    height: 25rem;
+    object-fit: cover;
+}
+.card-B img{
+    max-width: 100%;
+    height: 45rem;
+    object-fit: cover;
+}
+.card-A span, .card-B span{
+    position: absolute;
+    top: 1.6rem;
+    right: 1.6rem;
+    color: var(--ct-span);
+    font-family: var(--ff-header);
+    font-size: var(--fs-span);
+    font-weight: 400;
+    background:var(--bg-span);
+    letter-spacing: 1px;
+    padding: 0 2.3rem;
+    text-align: center;
+    border-radius: 2rem;
+    text-transform: uppercase;
+    animation: topdown 700ms 350ms backwards;
+}
+.card-A img, .card-B img{
+    animation: downtop 700ms 350ms backwards;
+}
+.footer{
+    display: none;
+}
+@keyframes downtop {
+    0%{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes topdown {
+    0%{
+        opacity: 0;
+        transform: translateY(-35px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@media (min-width: 768px){
+    .page{
+        max-width: 128rem;
+        display: flex;
+    }
+    header{
+        max-width: 37.7rem;
+        max-height: 100%;
+    }
+    header h1{
+        margin: auto;
+    }
+    header img{
+        margin: 3rem auto 1rem
+    }
+    header p{
+        display: flex;
+        font-family: var(--ff-main);
+        font-size: 2.4rem;
+        line-height: 2rem;
+        text-align: Center;
+        font-weight: 400;
+        padding: 5rem;
+        color: #FFFFFF;
+    }
+    main{
+        min-width: 40vw;
+        display: grid;
+        grid-template-areas: 
+        "A B E" 
+        "D B F"
+        "D C F";
+        margin: 6.4rem 9rem 5rem;
+        padding: 0;
+    }
+    main div:nth-child(2){
+        grid-area: A;
+    }
+    main div:nth-child(3){
+        grid-area: B;
+    }
+    main div:nth-child(4){
+        grid-area: C;
+    }
+    main div:nth-child(5){
+        grid-area: D;
+    }
+    main div:nth-child(6){
+        display: grid;
+        grid-area: E;
+    }
+    main div:nth-child(7){
+        display: grid;
+        grid-area: F;
+    }
+    main p{
+        display: none;
+    }
+    .card-A img{
+        max-width: 22rem;
+        height: 15rem;
+        object-fit: cover;
+    }
+    .card-B img{
+        max-width: 22rem;
+        height: 35rem;
+        object-fit: cover;
+    }
+    .card-A img, .card-B img{
+        animation: downtop 700ms 350ms backwards;
+        transition: all 300ms;
+    }
+    .card-A img:hover, .card-B img:hover{
+        transform: scale(1.15);
+        filter: contrast(1.15);
+    }
+    .card-A span, .card-B span{
+        display: none;
+    }
+    .repeat{
+        display: grid;
+    }
+    .footer{
+        display: flex;
+        justify-content: center;
+    }
+    .footer p{
+        color: var(--ct-span);
+        font-family: var(--ff-main);
+        font-size: var(--fs-body);
+        line-height: 2.8rem;
+    }
+    .footer a{
+        text-decoration: none;
+        color: var(--ct-span);
+    }
+}
